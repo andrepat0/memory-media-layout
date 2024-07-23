@@ -1,6 +1,7 @@
 ### Memory Media Layout
 
-This is a simple new layout created using the main memori-react component [https://github.com/memori-ai/memori-react] . It is a project built with Next.js.
+This is a simple new layout created using the main memori-react component [memori-react](https://github.com/memori-ai/memori-react).
+It is a project built using Vite setup.
 
 ## Getting Started
 
