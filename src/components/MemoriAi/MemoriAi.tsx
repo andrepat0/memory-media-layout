@@ -1,6 +1,8 @@
 import Memori from "@memori.ai/memori-react";
 import { CustomLayout } from "./CustomLayout/CustomLayout";
 import "@memori.ai/memori-react/dist/styles.css";
+import "./MemoriAi.css";
+import CustomImageRenderer from "./CustomLayout/ImageRenderer/CustomImageRenderer";
 
 export default function MemoriAi() {
   return (

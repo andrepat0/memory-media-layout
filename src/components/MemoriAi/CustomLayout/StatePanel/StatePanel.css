@@ -1,0 +1,35 @@
+.memori-panel--container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--memori-primary);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: var(--memori-text-color);
+}
+
+.memori-panel-user-text--container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.memori-panel-user-text--title{
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.memori-panel-user-text--content{
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    font-size: 0.8rem;
+}
+
+.memori-panel-logged-user--content{
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0px;
+}
