@@ -13,23 +13,26 @@ export const CustomLayout: React.FC<LayoutProps> = ({
   Header,
   headerProps,
 }) => {
-  <>
-    <Header {...headerProps} />
+  return (
+    <>
+      <Header {...headerProps} />
 
-    <div className="memori-custom-layout--controls--container">
-      {(chatProps?.history && chatProps.history.length > 0) ||
-      startPanelProps?.isUserLoggedIn ? (
-        <StatePanel
-          user={startPanelProps?.user}
-          userLoggedin={startPanelProps?.isUserLoggedIn}
-          userText={chatProps?.history}
-        />
-      ) : null}
-      {sessionId && hasUserActivatedSpeak && Chat && chatProps ? (
-       <CustomChat {...chatProps} />
-      ) : startPanelProps ? (
-        <StartPanel {...startPanelProps} />
-      ) : null}
-    </div>
-  </>;
+      <div className="memori-custom-layout--controls--container">
+        {(chatProps?.history && chatProps.history.length > 0) ||
+        startPanelProps?.isUserLoggedIn ? (
+          <StatePanel
+            user={startPanelProps?.user}
+            userLoggedin={startPanelProps?.isUserLoggedIn}
+            chatProps={chatProps}
+          />
+        ) : null}
+        {sessionId && hasUserActivatedSpeak && Chat && chatProps ? (
+         <CustomChat {...chatProps} />
+        ) : startPanelProps ? (
+          <StartPanel {...startPanelProps} />
+        ) : null}
+      </div>
+    </>
+  );
 };
+

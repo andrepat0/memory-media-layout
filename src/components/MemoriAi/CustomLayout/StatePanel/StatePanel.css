@@ -3,10 +3,11 @@
     flex-direction: column;
     gap: 10px;
     padding: 20px;
-    background-color: var(--memori-primary);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: var(--memori-text-color);
+    min-width: 180px;
+    background: rgb(0 0 0 / 50%);
+    border-radius: 30px;
+}
 }
 
 .memori-panel-user-text--container{
@@ -16,8 +17,8 @@
 }
 
 .memori-panel-user-text--title{
-    font-size: 1.0rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 500;
     margin: 0px;
 }
 
@@ -25,11 +26,26 @@
     display: flex;
     flex-direction: column;
     margin: 0px;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    font-weight: 400;
 }
 
 .memori-panel-logged-user--content{
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.6rem;
+    font-weight: 400;
     margin: 0px;
+}
+
+.memori-panel-user-text--button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--memori-secondary);
+    color: var(--memori-text-color);
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    background-color: var(--memori-primary);
 }
