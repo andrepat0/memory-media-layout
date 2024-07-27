@@ -26,7 +26,7 @@ export const CustomLayout: React.FC<LayoutProps> = ({
         />
       ) : null}
       {sessionId && hasUserActivatedSpeak && Chat && chatProps ? (
-        <Chat {...chatProps} />
+       <CustomChat {...chatProps} />
       ) : startPanelProps ? (
         <StartPanel {...startPanelProps} />
       ) : null}
