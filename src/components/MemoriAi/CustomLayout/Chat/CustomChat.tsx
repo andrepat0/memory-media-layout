@@ -3,6 +3,7 @@ import {
   ChatProps,
   LayoutProps,
 } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
+import "./CustomChat.css";
 
 export default function CustomChat({
   history,
@@ -14,7 +15,6 @@ export default function CustomChat({
   const [message, setMessage] = React.useState("");
 
   const handleSendMessage = (message: string) => {
-    // handle the enter key
     sendMessage(message);
   };
 
@@ -23,27 +23,10 @@ export default function CustomChat({
   );
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "100%",
-      height: "100%",
-    }}>
+    <div className="memori-chat--container">
       {lastChatMessage && lastChatMessage.length > 0 ? (
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
-            height: "100%",
-            overflow: "hidden",
-            position: "relative",
-            maxWidth: "90%",
-          }}
+          className="memori-chat--header"
         >
           {lastChatMessage[lastChatMessage.length - 1]?.media.length > 0 ? (
             <img
@@ -68,35 +51,21 @@ export default function CustomChat({
             <div
               style={{
                 position: "relative",
+                width: "100%"
               }}
             >
               <img
                 src={memori?.avatarURL}
-                style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: "50%",
-                  position: "absolute",
-                  top: "70%",
-                  left: 2,
-                }}
+                className="memori-chat--header--avatar"
               />
               <img
                 src={memori?.coverURL}
-                style={{
-                  width: "100%",
-                  height: "80%",
-                  maxHeight: 400,
-                  borderRadius: "30px",
-                }}
+               className="memori-chat--header--cover"
               />
             </div>
           )}
           <p
-            style={{
-              fontSize: 14,
-              fontWeight: 400,
-            }}
+           className="memori-chat--header--text"
           >
             {showTypingText ? "..." : lastChatMessage[lastChatMessage.length - 1]?.text}
           </p>
@@ -105,17 +74,7 @@ export default function CustomChat({
         <img src={memori?.avatarURL} />
       )}
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-          overflow: "hidden",
-          position: "relative",
-          maxWidth: "90%",
-        }}
+        className="memori-chat--input--container"
       >
         <input
           type="text"
@@ -128,25 +87,10 @@ export default function CustomChat({
               setMessage("");
             }
           }}
-          style={{
-            width: "80%",
-            height: 40,
-            borderRadius: 20,
-            border: "1px solid #000",
-            padding: 10,
-            marginRight: 10,
-          }}
+          className="memori-chat--input"
         />
         <button
-          style={{
-            width: 100,
-            height: 40,
-            borderRadius: 20,
-            border: "1px solid #000",
-            backgroundColor: "#000",
-            color: "#fff",
-            cursor: "pointer",
-          }}
+         className="memori-chat--input--button"
           onClick={() => handleSendMessage(message)}
         >
           Send
