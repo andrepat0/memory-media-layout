@@ -17,21 +17,22 @@
 }
 
 .memori-panel-user-text--title{
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 500;
     margin: 0px;
 }
 
-.memori-panel-user-text--content{
+.memori-panel-user-text--text{
     display: flex;
     flex-direction: column;
     margin: 0px;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: 400;
+    max-width: 200px;
 }
 
-.memori-panel-logged-user--content{
-    font-size: 0.6rem;
+.memori-panel-logged-user--text{
+    font-size: 0.8rem;
     font-weight: 400;
     margin: 0px;
 }
@@ -48,4 +49,40 @@
     width: 100%;
     transition: background-color 0.3s;
     background-color: var(--memori-primary);
+}
+
+.memori-panel-logged-user--container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid var(--memori-text-color);
+    padding-bottom: 10px;
+}
+
+.memori-panel-logged-user--avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.memori-panel-unlogged-user--avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #f8f8f8;
+    display: flex;
+}
+
+.memori-panel-logged-user--text{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0px;
+    color: var(--memori-text-color);
+}
+
+
+@media (max-width: 768px) {
+    .memori-panel--container{
+        display: none;
+    }
 }
