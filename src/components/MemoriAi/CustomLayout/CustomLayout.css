@@ -1,6 +1,6 @@
 .memori-custom-layout--controls--container{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     margin-top: 20px;
 }

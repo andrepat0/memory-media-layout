@@ -15,7 +15,7 @@ export const CustomLayout: React.FC<LayoutProps> = ({
 }) => {
   return (
     <>
-      <Header {...headerProps} />
+      <Header {...headerProps}  showLogin={true}  />
 
       <div className="memori-custom-layout--controls--container">
         {(chatProps?.history && chatProps.history.length > 0) ||

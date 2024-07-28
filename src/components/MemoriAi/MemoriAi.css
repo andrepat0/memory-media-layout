@@ -26,3 +26,9 @@ memori-client,
 .memori-modal--panel {
   color: #000;
 }
+
+.memori--start-panel{
+  margin: 0px;
+    padding: 0px;
+    margin-left: 20px;
+}
