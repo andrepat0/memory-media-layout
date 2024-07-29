@@ -38,6 +38,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: 30px;
+        min-height: 30vh;
 }
 
 .memori-chat--header--text{
@@ -84,4 +85,11 @@
         cursor: pointer;
         transition: background-color 0.3s;
         background-color: #000;
+}
+
+@media screen and (max-width: 768px){
+        .memori-chat--container{
+                max-width: 90%;
+                margin-left: 0px;
+        }
 }

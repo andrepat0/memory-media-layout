@@ -1,26 +1,32 @@
 import React from "react";
 import {
-  ChatProps,
-  LayoutProps,
+  ChatProps
 } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
 import "./CustomChat.css";
+import ChatInputs from "@memori.ai/memori-react/dist/components/ChatInputs/ChatInputs";
 
 export default function CustomChat({
   history,
   sendMessage,
   memori,
   sessionID,
-  showTypingText
+  showTypingText,
+  startListening
 }: ChatProps) {
   const [message, setMessage] = React.useState("");
 
   const handleSendMessage = (message: string) => {
     sendMessage(message);
+    setMessage("");
   };
 
   const lastChatMessage = history?.filter(
     (el: ChatProps["history"]) => !el.fromUser
   );
+
+  const handleVoiceRecognition = () => {
+    startListening();
+  }
 
   return (
     <div className="memori-chat--container">
@@ -73,29 +79,23 @@ export default function CustomChat({
       ) : (
         <img src={memori?.avatarURL} />
       )}
-      <div
-        className="memori-chat--input--container"
-      >
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleSendMessage(message);
-              //reset the input
-              setMessage("");
-            }
-          }}
-          className="memori-chat--input"
-        />
-        <button
-         className="memori-chat--input--button"
-          onClick={() => handleSendMessage(message)}
-        >
-          Send
-        </button>
-      </div>
+      <ChatInputs
+        dialogState={memori?.dialogState}
+        userMessage={message}
+        onChangeUserMessage={setMessage}
+        sendMessage={handleSendMessage}
+        listening={memori?.listening}
+        startListening={handleVoiceRecognition}
+        stopListening={() => {}}
+        stopAudio={() => {}}
+        onTextareaFocus={() => {}}
+        onTextareaBlur={() => {}}
+        onTextareaPressEnter={() => {}}
+        setSendOnEnter={() => {}}
+        setAttachmentsMenuOpen={() => {}}
+        showMicrophone={false}
+      />
+      
     </div>
   );
 }
