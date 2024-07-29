@@ -1,9 +1,10 @@
 import React from "react";
-import {
-  ChatProps
-} from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
+import { ChatProps } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
 import "./CustomChat.css";
 import ChatInputs from "@memori.ai/memori-react/dist/components/ChatInputs/ChatInputs";
+import Spin from "@memori.ai/memori-react/dist/components/ui/Spin";
+
+
 
 export default function CustomChat({
   history,
@@ -11,7 +12,9 @@ export default function CustomChat({
   memori,
   sessionID,
   showTypingText,
-  startListening
+  startListening,
+  typingText,
+  memoriTyping,
 }: ChatProps) {
   const [message, setMessage] = React.useState("");
 
@@ -26,14 +29,14 @@ export default function CustomChat({
 
   const handleVoiceRecognition = () => {
     startListening();
-  }
+  };
+
+  console.log(showTypingText, typingText, memoriTyping);
 
   return (
     <div className="memori-chat--container">
       {lastChatMessage && lastChatMessage.length > 0 ? (
-        <div
-          className="memori-chat--header"
-        >
+        <div className="memori-chat--header">
           {lastChatMessage[lastChatMessage.length - 1]?.media.length > 0 ? (
             <img
               src={
@@ -57,7 +60,7 @@ export default function CustomChat({
             <div
               style={{
                 position: "relative",
-                width: "100%"
+                width: "100%",
               }}
             >
               <img
@@ -66,15 +69,19 @@ export default function CustomChat({
               />
               <img
                 src={memori?.coverURL}
-               className="memori-chat--header--cover"
+                className="memori-chat--header--cover"
               />
             </div>
           )}
-          <p
-           className="memori-chat--header--text"
-          >
-            {showTypingText ? "..." : lastChatMessage[lastChatMessage.length - 1]?.text}
-          </p>
+          {memoriTyping ? (
+            <div className="memori-chat--spin-container">
+              <Spin spinning primary className="memori-chat--spin" />
+            </div>
+          ) : (
+            <p className={`memori-chat--header--text`}>
+              {lastChatMessage[lastChatMessage.length - 1]?.text}
+            </p>
+          )}
         </div>
       ) : (
         <img src={memori?.avatarURL} />
@@ -95,7 +102,6 @@ export default function CustomChat({
         setAttachmentsMenuOpen={() => {}}
         showMicrophone={false}
       />
-      
     </div>
   );
 }

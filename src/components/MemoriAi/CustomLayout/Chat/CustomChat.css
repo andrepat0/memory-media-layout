@@ -87,6 +87,21 @@
         background-color: #000;
 }
 
+
+.memori-chat--spin-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+}
+
+.memori-chat--spin{
+        width: 10rem;
+        height: 10rem;
+}
+
+
 @media screen and (max-width: 768px){
         .memori-chat--container{
                 max-width: 90%;

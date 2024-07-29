@@ -35,6 +35,10 @@ memori-client,
   color: #000;
 }
 
+.memori-spin--spinner{
+  background: transparent;
+}
+
 .memori--start-panel{
   margin: 0px;
     padding: 0px;
