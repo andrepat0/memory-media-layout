@@ -80,8 +80,22 @@
     color: var(--memori-text-color);
 }
 
+.memori-panel-user-text--button-desktop{
+    display: block;
+}
+
+.memori-panel-user-text--button-mobile{
+    display: none;
+}
+
 
 @media (max-width: 768px) {
+    .memori-panel-user-text--button-mobile{
+        display: block;
+    }
+    .memori-panel-user-text--button-desktop{
+        display: none ;
+    }
     .memori-panel--container{
         display: none;
     }
