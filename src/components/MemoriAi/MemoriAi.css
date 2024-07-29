@@ -23,6 +23,14 @@ memori-client,
   --memori-error-color: #ff4d4f;
 }
 
+.memori-drawer--title{
+  color: #000;
+}
+
+.memori-drawer--description{
+  color: #000;
+}
+
 .memori-modal--panel {
   color: #000;
 }
