@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@memori.ai/memori-react": "^7.11.4",
-    "@react-leaflet/core": "^3.0.0",
+    "@react-leaflet/core": "2.1.0",
     "leaflet": "^1.9.4",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
