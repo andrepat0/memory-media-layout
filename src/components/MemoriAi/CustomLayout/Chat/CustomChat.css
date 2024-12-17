@@ -74,6 +74,18 @@
         max-width: 800px;
 }
 
+.memori-chat--media-widget-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        max-width: 800px;
+}
+
 .memori-chat--input--button{
         display: flex;
         justify-content: center;

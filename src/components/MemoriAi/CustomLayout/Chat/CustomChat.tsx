@@ -83,9 +83,10 @@ export default function CustomChat({
         <img src={memori?.avatarURL} />
       )}
 
-      {dialogState?.hints && dialogState.hints.length > 0 && !memoriTyping && (
-        <MediaWidget
-          memori={memori}
+      <div className="memori-chat--media-widget-container">
+        {dialogState?.hints && dialogState.hints.length > 0 && !memoriTyping && (
+          <MediaWidget
+            memori={memori}
           simulateUserPrompt={simulateUserPrompt}
           hints={
             dialogState.translatedHints
@@ -97,6 +98,7 @@ export default function CustomChat({
           }
         />
       )}
+      </div>
       <div className="memori-chat--inputs-container">
         {" "}
         <ChatInputs
