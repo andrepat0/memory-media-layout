@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@memori.ai/memori-react": "^7.1.1",
+    "@memori.ai/memori-react": "^7.11.4",
+    "@react-leaflet/core": "^3.0.0",
+    "leaflet": "^1.9.4",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
@@ -25,5 +29,6 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
-  }
+  },
+  "packageManager": "yarn@3.2.3+sha512.f26f951f67de0c6a33ee381e5ff364709c87e70eb5e65c694e4facde3512f1fa80b8679e6ba31ce7d340fbb46f08dd683af9457e240f25a204be7427940d767e"
 }
