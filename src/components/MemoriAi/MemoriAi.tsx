@@ -6,13 +6,18 @@ import "./MemoriAi.css";
 export default function MemoriAi() {
   return (
     <Memori
-      memoriName="L'Ombra della Selva Proibita"
-      ownerUserName="patini929"
-      memoriID="0f712592-ed6a-4d1a-8720-161752af136e"
-      ownerUserID="1941d326-6986-4fa1-872b-458d09fb654c"
-      tenantID="www.aisuru.com"
-      apiURL="https://backend.memori.ai"
-      baseURL="https://www.aisuru.com"
+      memoriName="The Land of Memori"
+      ownerUserName="andrea.patini3"
+      tenantID="aisuru-staging.aclambda.online"
+      apiURL="https://backend-staging.memori.ai"
+      engineURL="https://engine-staging-tmp.memori.ai"
+      baseURL="https://aisuru-staging.aclambda.online"
+      uiLang="en"
+      lang="it"
+      spokenLang="en"
+      multilingual={false}
+      integrationID="3bbd1999-c289-45aa-a562-3184d1fdfa70"
+      layout="FULLPAGE"
       showShare
       customLayout={CustomLayout}
       multilingual
