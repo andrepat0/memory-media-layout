@@ -1,17 +1,20 @@
 import React from "react";
+import MediaWidget from "@memori.ai/memori-react/dist/components/MediaWidget/MediaWidget";
 import {
-  ChatProps
+  ChatProps,
 } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
 import "./CustomChat.css";
 import ChatInputs from "@memori.ai/memori-react/dist/components/ChatInputs/ChatInputs";
-
 export default function CustomChat({
   history,
   sendMessage,
   memori,
   sessionID,
   showTypingText,
-  startListening
+  startListening,
+  dialogState,
+  memoriTyping,
+  simulateUserPrompt,
 }: ChatProps) {
   const [message, setMessage] = React.useState("");
 
@@ -26,14 +29,14 @@ export default function CustomChat({
 
   const handleVoiceRecognition = () => {
     startListening();
-  }
+  };
+
+  console.log(memori, dialogState);
 
   return (
     <div className="memori-chat--container">
       {lastChatMessage && lastChatMessage.length > 0 ? (
-        <div
-          className="memori-chat--header"
-        >
+        <div className="memori-chat--header">
           {lastChatMessage[lastChatMessage.length - 1]?.media.length > 0 ? (
             <img
               src={
@@ -57,7 +60,7 @@ export default function CustomChat({
             <div
               style={{
                 position: "relative",
-                width: "100%"
+                width: "100%",
               }}
             >
               <img
@@ -66,36 +69,53 @@ export default function CustomChat({
               />
               <img
                 src={memori?.coverURL}
-               className="memori-chat--header--cover"
+                className="memori-chat--header--cover"
               />
             </div>
           )}
-          <p
-           className="memori-chat--header--text"
-          >
-            {showTypingText ? "..." : lastChatMessage[lastChatMessage.length - 1]?.text}
+          <p className="memori-chat--header--text">
+            {showTypingText
+              ? "..."
+              : lastChatMessage[lastChatMessage.length - 1]?.text}
           </p>
         </div>
       ) : (
         <img src={memori?.avatarURL} />
       )}
-      <ChatInputs
-        dialogState={memori?.dialogState}
-        userMessage={message}
-        onChangeUserMessage={setMessage}
-        sendMessage={handleSendMessage}
-        listening={memori?.listening}
-        startListening={handleVoiceRecognition}
-        stopListening={() => {}}
-        stopAudio={() => {}}
-        onTextareaFocus={() => {}}
-        onTextareaBlur={() => {}}
-        onTextareaPressEnter={() => {}}
-        setSendOnEnter={() => {}}
-        setAttachmentsMenuOpen={() => {}}
-        showMicrophone={false}
-      />
-      
+
+      {dialogState?.hints && dialogState.hints.length > 0 && !memoriTyping && (
+        <MediaWidget
+          memori={memori}
+          simulateUserPrompt={simulateUserPrompt}
+          hints={
+            dialogState.translatedHints
+              ? dialogState.translatedHints
+              : dialogState.hints.map((h) => ({
+                  text: h,
+                  originalText: h,
+                }))
+          }
+        />
+      )}
+      <div className="memori-chat--inputs-container">
+        {" "}
+        <ChatInputs
+          dialogState={memori?.dialogState}
+          userMessage={message}
+          onChangeUserMessage={setMessage}
+          sendMessage={handleSendMessage}
+          listening={memori?.listening}
+          startListening={handleVoiceRecognition}
+          stopListening={() => {}}
+          stopAudio={() => {}}
+          onTextareaFocus={() => {}}
+          onTextareaBlur={() => {}}
+          onTextareaPressEnter={() => {}}
+          setSendOnEnter={() => {}}
+          setAttachmentsMenuOpen={() => {}}
+          showMicrophone={false}
+        />
+      </div>
     </div>
   );
 }
