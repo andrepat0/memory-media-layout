@@ -1,8 +1,6 @@
 import React from "react";
 import MediaWidget from "@memori.ai/memori-react/dist/components/MediaWidget/MediaWidget";
-import {
-  ChatProps,
-} from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
+import { ChatProps } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
 import "./CustomChat.css";
 import ChatInputs from "@memori.ai/memori-react/dist/components/ChatInputs/ChatInputs";
 export default function CustomChat({
@@ -30,8 +28,6 @@ export default function CustomChat({
   const handleVoiceRecognition = () => {
     startListening();
   };
-
-  console.log(memori, dialogState);
 
   return (
     <div className="memori-chat--container">
@@ -76,7 +72,7 @@ export default function CustomChat({
           <p className="memori-chat--header--text">
             {showTypingText
               ? "..."
-              : lastChatMessage[lastChatMessage.length - 1]?.text}
+              : lastChatMessage[lastChatMessage.length - 1]?.text.split("#")[0]}
           </p>
         </div>
       ) : (
@@ -84,20 +80,20 @@ export default function CustomChat({
       )}
 
       <div className="memori-chat--media-widget-container">
-        {dialogState?.hints && dialogState.hints.length > 0 && !memoriTyping && (
-          <MediaWidget
-            memori={memori}
-          simulateUserPrompt={simulateUserPrompt}
-          hints={
-            dialogState.translatedHints
-              ? dialogState.translatedHints
-              : dialogState.hints.map((h) => ({
-                  text: h,
-                  originalText: h,
-                }))
-          }
-        />
-      )}
+        {dialogState.emission && !memoriTyping && (
+            <MediaWidget
+              memori={memori}
+              simulateUserPrompt={simulateUserPrompt}
+              hints={dialogState.emission
+                .split("\n")
+                .filter((el: string) => el.startsWith("#")).map(
+                  (el: string) => ({
+                    text: el.replace("#", ""),
+                    originalText: el,
+                  })
+                )}
+            />
+          )}
       </div>
       <div className="memori-chat--inputs-container">
         {" "}

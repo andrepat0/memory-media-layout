@@ -76,7 +76,7 @@ export default function StatePanel({
         <p className="memori-panel-user-text--title">Testo Inviato:</p>
         <p className="memori-panel-user-text--text">
           {lastUserText && lastUserText.length > 0
-            ? lastUserText[lastUserText.length - 1]?.text
+            ? lastUserText[lastUserText.length - 1]?.text.replaceAll("#", "")
             : "Nessun testo inviato"}
         </p>
       </div>
