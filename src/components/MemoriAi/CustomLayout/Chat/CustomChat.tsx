@@ -3,6 +3,7 @@ import MediaWidget from "@memori.ai/memori-react/dist/components/MediaWidget/Med
 import { ChatProps } from "@memori.ai/memori-react/dist/components/MemoriWidget/MemoriWidget";
 import "./CustomChat.css";
 import ChatInputs from "@memori.ai/memori-react/dist/components/ChatInputs/ChatInputs";
+import  Spin from "@memori.ai/memori-react/dist/components/ui/Spin";
 export default function CustomChat({
   history,
   sendMessage,
@@ -69,8 +70,8 @@ export default function CustomChat({
               />
             </div>
           )}
-          <p className="memori-chat--header--text">
-            {showTypingText
+          <p className={"memori-chat--header--text " + (memoriTyping ? "memori-chat--header--text--typing" : "")}>
+            {memoriTyping
               ? "..."
               : lastChatMessage[lastChatMessage.length - 1]?.text.split("#")[0]}
           </p>
@@ -93,26 +94,7 @@ export default function CustomChat({
                   })
                 )}
             />
-          )}
-      </div>
-      <div className="memori-chat--inputs-container">
-        {" "}
-        <ChatInputs
-          dialogState={memori?.dialogState}
-          userMessage={message}
-          onChangeUserMessage={setMessage}
-          sendMessage={handleSendMessage}
-          listening={memori?.listening}
-          startListening={handleVoiceRecognition}
-          stopListening={() => {}}
-          stopAudio={() => {}}
-          onTextareaFocus={() => {}}
-          onTextareaBlur={() => {}}
-          onTextareaPressEnter={() => {}}
-          setSendOnEnter={() => {}}
-          setAttachmentsMenuOpen={() => {}}
-          showMicrophone={false}
-        />
+          ) }
       </div>
     </div>
   );
