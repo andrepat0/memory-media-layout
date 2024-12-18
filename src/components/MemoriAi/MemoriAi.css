@@ -40,3 +40,7 @@ memori-client,
     padding: 0px;
     margin-left: 20px;
 }
+
+.memori--date-selector__select--value{
+  color: #000;
+}
