@@ -15,7 +15,6 @@ export default function MemoriAi() {
       uiLang="en"
       lang="it"
       spokenLang="en"
-      multilingual={false}
       integrationID="3bbd1999-c289-45aa-a562-3184d1fdfa70"
       layout="FULLPAGE"
       showShare
