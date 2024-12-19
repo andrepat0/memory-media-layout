@@ -7,11 +7,14 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist",
+    "deploy:prod": "yarn build && yarn deploy"
   },
   "dependencies": {
     "@memori.ai/memori-react": "^7.11.4",
     "@react-leaflet/core": "2.1.0",
+    "gh-pages": "^6.2.0",
     "leaflet": "^1.9.4",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
